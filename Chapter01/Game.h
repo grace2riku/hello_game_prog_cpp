@@ -6,3 +6,26 @@
 // See LICENSE in root directory for full details.
 // ----------------------------------------------------------------
 
+class Game
+{
+public:
+    Game();
+
+    // ゲームを初期化する
+    bool Initialize();
+    // ゲームオーバーまでゲームループを実行する
+    void RunLoop();
+    // ゲームをシャットダウンする
+    void Shutdown();
+
+private:
+    // ゲームループのためのヘルパー関数
+    void ProcessInput();
+    void UpdateGame();
+    void GenerateOutput();
+
+    // SDLが作るウィンドウ
+    SDL_Window* mWindow;
+    // ゲームの続行を指示する
+    bool mlsRunning;
+}
