@@ -6,3 +6,10 @@
 // See LICENSE in root directory for full details.
 // ----------------------------------------------------------------
 
+#include "Game.h"
+
+int main(int argc, char** argv) {
+
+
+    return 0;
+}

@@ -6,6 +6,9 @@
 // See LICENSE in root directory for full details.
 // ----------------------------------------------------------------
 
+#pragma once
+#include <SDL.h>
+
 class Game
 {
 public:
@@ -28,4 +31,4 @@ private:
     SDL_Window* mWindow;
     // ゲームの続行を指示する
     bool mlsRunning;
-}
+};
