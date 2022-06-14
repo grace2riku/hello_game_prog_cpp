@@ -32,3 +32,7 @@ bool Game::Initialize() {
     return true;
 }
 
+void Game::Shutdown() {
+    SDL_DestroyWindow(mWindow);
+    SDL_Quit();
+}
