@@ -32,7 +32,32 @@ bool Game::Initialize() {
     return true;
 }
 
+
 void Game::Shutdown() {
     SDL_DestroyWindow(mWindow);
     SDL_Quit();
+}
+
+
+void Game::ProcessInput() {
+
+}
+
+
+void Game::UpdateGame() {
+
+}
+
+
+void Game::GenerateOutput() {
+
+}
+
+
+void Game::RunLoop() {
+    while (mlsRunning) {
+        ProcessInput();
+        UpdateGame();
+        GenerateOutput();
+    }
 }
