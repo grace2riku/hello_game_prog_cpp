@@ -31,4 +31,5 @@ private:
     SDL_Window* mWindow;
     // ゲームの続行を指示する
     bool mlsRunning;
+    SDL_Renderer* mRenderer;
 };
