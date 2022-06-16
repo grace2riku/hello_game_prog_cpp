@@ -8,6 +8,14 @@
 
 #include "Game.h"
 
+Game::Game()
+:mWindow(nullptr)
+,mlsRunning(true)
+{
+
+}
+
+
 bool Game::Initialize() {
     int sdlResult = SDL_Init(SDL_INIT_VIDEO);
     if (sdlResult != 0) {
@@ -40,7 +48,16 @@ void Game::Shutdown() {
 
 
 void Game::ProcessInput() {
+    SDL_Event event;
 
+    // キューにイベントがあれば繰り返す
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
+        case SDL_QUIT:
+            mlsRunning = false;
+            break;
+        }        
+    }
 }
 
 
