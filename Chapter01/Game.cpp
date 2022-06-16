@@ -58,6 +58,13 @@ void Game::ProcessInput() {
             break;
         }        
     }
+
+    // キーボードの状態を取得する
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+    // [ESC]キーが押されていてもループを終える
+    if (state[SDL_SCANCODE_ESCAPE]) {
+        mlsRunning = false;
+    }
 }
 
 
