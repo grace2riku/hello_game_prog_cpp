@@ -138,7 +138,13 @@ void Game::GenerateOutput() {
     SDL_RenderFillRect(mRenderer, &paddle);
 
     // Draw ball
-
+    SDL_Rect ball {
+        static_cast<int>(mBallPos.x - thickness/2),
+        static_cast<int>(mBallPos.y - thickness/2),
+        thickness,
+        thickness
+    };
+    SDL_RenderFillRect(mRenderer, &ball);
 
     // Swqp front buffer and back buffer
     SDL_RenderPresent(mRenderer);
