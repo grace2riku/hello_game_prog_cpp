@@ -117,6 +117,13 @@ void Game::GenerateOutput() {
     wall.y = 768 - thickness;
     SDL_RenderFillRect(mRenderer, &wall);
 
+    // Draw right wall
+    wall.x = 1024 - thickness;
+    wall.y = 0;
+    wall.w = thickness;
+    wall.h = 1024;
+    SDL_RenderFillRect(mRenderer, &wall);
+
     // Swqp front buffer and back buffer
     SDL_RenderPresent(mRenderer);
 }
