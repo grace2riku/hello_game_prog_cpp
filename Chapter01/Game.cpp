@@ -9,7 +9,7 @@
 #include "Game.h"
 
 const int thickness = 15;
-
+const int paddleH = 100.0f;
 
 Game::Game()
 :mWindow(nullptr)
@@ -50,6 +50,10 @@ bool Game::Initialize() {
         return false;
     }
 
+    mPaddlePos.x = 10.0f;
+    mPaddlePos.y = 768.0f / 2.0f;
+    mBallPos.x = 1024.0f / 2.0f;
+    mBallPos.y = 768.0f / 2.0f;
 
     return true;
 }
@@ -123,6 +127,18 @@ void Game::GenerateOutput() {
     wall.w = thickness;
     wall.h = 1024;
     SDL_RenderFillRect(mRenderer, &wall);
+
+    // Draw paddle
+    SDL_Rect paddle {
+        static_cast<int>(mPaddlePos.x),
+        static_cast<int>(mPaddlePos.y - paddleH/2),
+        thickness,
+        static_cast<int>(paddleH)
+    };
+    SDL_RenderFillRect(mRenderer, &paddle);
+
+    // Draw ball
+
 
     // Swqp front buffer and back buffer
     SDL_RenderPresent(mRenderer);

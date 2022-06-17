@@ -9,6 +9,13 @@
 #pragma once
 #include <SDL.h>
 
+// Vector2 struct stores x/y cooordinates
+// (for now)
+struct Vector2 {
+    float x;
+    float y;
+};
+
 class Game
 {
 public:
@@ -29,7 +36,15 @@ private:
 
     // SDLが作るウィンドウ
     SDL_Window* mWindow;
+    SDL_Renderer* mRenderer;
+
     // ゲームの続行を指示する
     bool mlsRunning;
-    SDL_Renderer* mRenderer;
+
+
+    // Pong speciffc
+    // Position on paddle
+    Vector2 mPaddlePos;
+    // Position on ball
+    Vector2 mBallPos;
 };
