@@ -8,6 +8,9 @@
 
 #include "Game.h"
 
+const int thickness = 15;
+
+
 Game::Game()
 :mWindow(nullptr)
 ,mRenderer(nullptr)
@@ -98,6 +101,17 @@ void Game::GenerateOutput() {
     // Clear back buffer
     SDL_RenderClear(mRenderer);
 
+    // Draw walls
+    SDL_SetRenderDrawColor(mRenderer, 255, 255, 255, 255);
+
+    // Draw top wall
+    SDL_Rect wall {
+        0,          // 左上隅のx
+        0,          // 左上隅のy
+        1024,       // 幅
+        thickness   // 高さ
+    };
+    SDL_RenderFillRect(mRenderer, &wall);
 
     // Swqp front buffer and back buffer
     SDL_RenderPresent(mRenderer);
