@@ -16,6 +16,7 @@ Game::Game()
 ,mRenderer(nullptr)
 ,mTicksCount(0)
 ,mlsRunning(true)
+,mPaddleDir(0)
 {
 
 }
@@ -85,6 +86,15 @@ void Game::ProcessInput() {
     if (state[SDL_SCANCODE_ESCAPE]) {
         mlsRunning = false;
     }
+
+    // Update paddle direction baseed on W/S keys
+    mPaddleDir = 0;
+    if (state[SDL_SCANCODE_W]) {
+        mPaddleDir -= 1;
+    }
+    if (state[SDL_SCANCODE_S]) {
+        mPaddleDir += 1;
+    }
 }
 
 
@@ -104,9 +114,10 @@ void Game::UpdateGame() {
     // 時刻を更新(次のフレームのために)
     mTicksCount = SDL_GetTicks();
 
-    // TODO: ゲームワールフォのオブジェクトを
-    //      デルタタイムの関数として更新する!
-
+    // Update paddle position based on direction
+    if (mPaddleDir != 0) {
+        mPaddlePos.y += mPaddleDir * 300.0f * deltaTime;
+    }
 }
 
 
