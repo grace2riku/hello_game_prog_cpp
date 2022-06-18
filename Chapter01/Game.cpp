@@ -117,6 +117,11 @@ void Game::UpdateGame() {
     // Update paddle position based on direction
     if (mPaddleDir != 0) {
         mPaddlePos.y += mPaddleDir * 300.0f * deltaTime;
+        if (mPaddlePos.y < (paddleH/2.0f + thickness)) {
+            mPaddlePos.y = paddleH/2.0f + thickness;
+        } else if (mPaddlePos.y > (768.0f - paddleH/2.0f - thickness)) {
+            mPaddlePos.y = 768.0f - paddleH/2.0f - thickness;
+        }
     }
 }
 
