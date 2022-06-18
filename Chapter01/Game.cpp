@@ -14,6 +14,7 @@ const int paddleH = 100.0f;
 Game::Game()
 :mWindow(nullptr)
 ,mRenderer(nullptr)
+,mTicksCount(0)
 ,mlsRunning(true)
 {
 
@@ -88,7 +89,14 @@ void Game::ProcessInput() {
 
 
 void Game::UpdateGame() {
+    // daltatimeは前のフレームとの時刻の差を秒に変換した値
+    float deltaTime = (SDL_GetTicks() - mTicksCount) / 1000.0f;
+    // 時刻を更新(次のフレームのために)
+    mTicksCount = SDL_GetTicks();
 
+    // TODO: ゲームワールフォのオブジェクトを
+    //      デルタタイムの関数として更新する!
+    
 }
 
 

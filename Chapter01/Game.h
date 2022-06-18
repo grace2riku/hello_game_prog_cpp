@@ -36,8 +36,10 @@ private:
 
     // SDLが作るウィンドウ
     SDL_Window* mWindow;
+    // Renderer for 2D drawing
     SDL_Renderer* mRenderer;
-
+    // Number of ticks since start og game
+    Uint32 mTicksCount;
     // ゲームの続行を指示する
     bool mlsRunning;
 
