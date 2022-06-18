@@ -89,14 +89,24 @@ void Game::ProcessInput() {
 
 
 void Game::UpdateGame() {
+    // 前のフレームから16msが経過するまで待つ
+    while (!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + 16))
+        ;
+
     // daltatimeは前のフレームとの時刻の差を秒に変換した値
     float deltaTime = (SDL_GetTicks() - mTicksCount) / 1000.0f;
+
+    // デルタタイムを最大値で制限する
+    if (deltaTime > 0.05f) {
+        deltaTime = 0.05f;
+    }
+
     // 時刻を更新(次のフレームのために)
     mTicksCount = SDL_GetTicks();
 
     // TODO: ゲームワールフォのオブジェクトを
     //      デルタタイムの関数として更新する!
-    
+
 }
 
 
