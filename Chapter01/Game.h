@@ -51,4 +51,6 @@ private:
     Vector2 mPaddlePos;
     // Position on ball
     Vector2 mBallPos;
+    // Velocity of ball
+    Vector2 mBallVel;
 };
