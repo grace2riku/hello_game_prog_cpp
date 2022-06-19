@@ -131,6 +131,16 @@ void Game::UpdateGame() {
     mBallPos.x += mBallVel.x * deltaTime;
     mBallPos.y += mBallVel.y * deltaTime;
 
+    // Did the ball collide with the top wall?
+    if (mBallPos.y <= thickness) {
+        mBallVel.y *= -1.0f;
+    }
+
+    // Did the ball collide with the bottom wall?
+    if (mBallPos.y >= (768 - thickness)) {
+        mBallVel.y *= -1.0f;
+    }
+
 }
 
 
